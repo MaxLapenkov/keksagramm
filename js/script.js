@@ -47,7 +47,7 @@ plus.addEventListener('click', () => {
         value = +(size.value.slice(0, -1));
         image.style.transform = `scale(${value/100})`;
     }
-    console.log(value);
+    
 });
 
 minus.addEventListener('click', () => {
@@ -56,7 +56,7 @@ minus.addEventListener('click', () => {
         value = +(size.value.slice(0, -1));
         image.style.transform = `scale(${value/100})`;
     }
-    console.log(value);
+    
 });
 
 
@@ -429,8 +429,7 @@ getData('GET', url)
                         commentsCount += 5;
                         clearComments();
                         showComments(commentsCount);
-                        console.log(commentsCount);
-                        console.log(pictureComments.length);
+                       
                         if(commentsCount > pictureComments.length - 1) {
                             btnShowMore.style.display = 'none';
                         }
@@ -480,5 +479,15 @@ getData('GET', url)
                 loadData(data);
               }, 500);        
         })
+       
+        let discussed = document.getElementById('filter-discussed');
+        discussed.addEventListener('click', () => {         
+            let discussedData = data.slice();
+            discussedData.sort((a, b) => a.comments.length < b.comments.length ? 1 : -1);
+            setTimeout(() => {
+                loadData(discussedData);
+              }, 500);   
+        });
     })
+    
     .catch(err => console.error(err));
