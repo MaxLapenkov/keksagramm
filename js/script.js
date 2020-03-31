@@ -1,3 +1,5 @@
+"use strict";
+//Загрузка файла и открытие окна редактировния
 let uploadFile = document.querySelector('#upload-file'),
     overlay = document.querySelector('.upload-overlay'),
     message = document.querySelector('.upload-message'),
@@ -20,7 +22,7 @@ closeOverlay.addEventListener('click', () => {
     message.classList.add('hidden');
 });
 
-
+//Изменение размера загружаемой картинки
 let size = document.querySelector('.upload-resize-controls-value'),
     minus = document.querySelector('.upload-resize-controls-button-dec'),
     plus = document.querySelector('.upload-resize-controls-button-inc'),
@@ -59,7 +61,7 @@ minus.addEventListener('click', () => {
     
 });
 
-
+//Настройка фильтров
 let levelContainer = document.querySelector('.upload-effect-level'),
     line = document.querySelector('.upload-effect-level-line'),
     pin = document.querySelector('.upload-effect-level-pin'),
@@ -165,6 +167,9 @@ pin.addEventListener('mousedown', onFilterIntensityPinMousedown);
 line.addEventListener('click', onFilterIntensityRangeClick);
 filtersList.addEventListener('click', onFiltersListClick);
 
+
+// Хештеги и комменты при нажатии Esc
+//Отправка информации на сервер при Submit формы
 let hashtags = document.querySelector('.upload-form-hashtags'),
     comment = document.querySelector('.upload-form-description'),
     form = document.querySelector('.upload-form'),
@@ -319,6 +324,7 @@ function getData(method, url) {
 
 
 }
+//Загрузка картинок с сервера
 let container = document.querySelector('.pictures'),
     gallery = document.querySelector('.gallery-overlay');
 
